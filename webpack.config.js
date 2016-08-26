@@ -1,26 +1,27 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const webpack = require('webpack');
 require('babel-polyfill');
 
-var IS_PRODUCTION = process.env.NODE_ENV === 'production';
+const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
-var ENTRY_POINTS = [
-  './src/js/app'
+const ENTRY_POINTS = [
+  './src/js/app.jsx',
 ];
 
-var JS_LOADERS = [
-  'babel?cacheDirectory&presets[]=react,presets[]=es2015,presets[]=stage-0'
+const JS_LOADERS = [
+  'babel?cacheDirectory&presets[]=react,presets[]=es2015,presets[]=stage-0',
 ];
 
-var PLUGINS = [];
+const PLUGINS = [];
 if (IS_PRODUCTION) {
   // Uglify in production.
   PLUGINS.push(
     new webpack.optimize.UglifyJsPlugin({
       mangle: {
-          except: ['$super', '$', 'exports', 'require']
+        except: ['$super', '$', 'exports', 'require'],
       },
-      sourcemap: false
+      sourcemap: false,
     })
   );
 }
@@ -40,16 +41,16 @@ module.exports = {
         // JS.
         exclude: /(node_modules|bower_components)/,
         loaders: JS_LOADERS,
-        test: /\.js$/,
+        test: /\.jsx?$/,
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        loader: 'style-loader!css-loader',
       },
       {
         test: /\.json$/,
-        loader: 'json-loader'
-      }
+        loader: 'json-loader',
+      },
     ],
   },
   plugins: PLUGINS,
@@ -59,9 +60,9 @@ module.exports = {
     modulesDirectories: [
       'src/js',
       'node_modules',
-    ]
+    ],
   },
   resolveLoader: {
-    fallback: [path.join(__dirname, 'node_modules')]
-  }
+    fallback: [path.join(__dirname, 'node_modules')],
+  },
 };

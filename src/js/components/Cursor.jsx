@@ -1,4 +1,4 @@
-import {Animation, Entity} from 'aframe-react';
+import { Animation, Entity } from 'aframe-react';
 import React from 'react';
 
 export default props => {
@@ -15,8 +15,13 @@ export default props => {
   };
   return (
     <Entity cursor={props} geometry={geometry} material={material} position="0 0 -1">
-      <Animation attribute="scale" begin="click" dur="150" fill="backwards"
-                 to="0 0 0"/>
+      <Animation
+        attribute="scale"
+        begin="click"
+        dur="150"
+        fill="backwards"
+        to="0 0 0"
+      />
     </Entity>
   );
 }
