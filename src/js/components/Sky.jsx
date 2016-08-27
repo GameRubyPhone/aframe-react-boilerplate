@@ -19,5 +19,4 @@ class Sky extends Component {
   }
 }
 
-
 export default Sky;
