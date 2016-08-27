@@ -1,11 +1,20 @@
 import { Entity } from 'aframe-react';
-import React from 'react';
+import React, { Component } from 'react';
 
 // eslint-disable-next-line no-unused-vars
-export default props => (
-  <Entity
-    geometry={{ primitive: 'sphere', radius: 100 }}
-    material={{ color: '#73CFF0', shader: 'flat' }}
-    scale="1 1 -1"
-  />
-);
+export default class Sky extends Component {
+  render() {
+    const { id, name, src } = this.props;
+
+    return (
+      <Entity
+        id={id}
+        name={name}
+        geometry={{ primitive: 'sphere', radius: 5000 }}
+        material={{ src: `url(${src})` }}
+        rotation="0 -130 0"
+        scale="1 1 -1"
+      />
+    );
+  }
+}

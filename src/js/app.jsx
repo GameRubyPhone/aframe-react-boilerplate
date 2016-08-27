@@ -8,6 +8,8 @@ import Camera from './components/Camera.jsx';
 import Cursor from './components/Cursor.jsx';
 import Sky from './components/Sky.jsx';
 
+const skyImage = require('../../sky.jpg');
+
 class BoilerplateScene extends React.Component {
   constructor(props) {
     super(props);
@@ -28,14 +30,15 @@ class BoilerplateScene extends React.Component {
       <Scene>
         <Camera><Cursor /></Camera>
 
-        <Sky />
+        <Sky id="sky" name="sky" src={skyImage} />
 
         <Entity light={{ type: 'ambient', color: '#888' }} />
         <Entity light={{ type: 'directional', intensity: 0.5 }} position={[-1, 1, 0]} />
         <Entity light={{ type: 'directional', intensity: 1 }} position={[1, 1, 0]} />
 
         <Entity
-          geometry="primitive: box" material={{ color: this.state.color }}
+          geometry="primitive: box"
+          material={{ color: this.state.color }}
           onClick={this.changeColor}
           position="0 0 -5"
         >
