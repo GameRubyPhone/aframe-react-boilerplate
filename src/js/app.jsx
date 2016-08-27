@@ -8,7 +8,7 @@ import Camera from './components/Camera.jsx';
 import Cursor from './components/Cursor.jsx';
 import Sky from './components/Sky.jsx';
 
-const skyImage = require('../../sky.jpg');
+const skyImage = require('../../dist/images/sky.jpg');
 
 class BoilerplateScene extends React.Component {
   constructor(props) {

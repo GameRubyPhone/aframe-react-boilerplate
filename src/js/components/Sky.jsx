@@ -2,7 +2,7 @@ import { Entity } from 'aframe-react';
 import React, { Component } from 'react';
 
 // eslint-disable-next-line no-unused-vars
-export default class Sky extends Component {
+class Sky extends Component {
   render() {
     const { id, name, src } = this.props;
 
@@ -18,3 +18,6 @@ export default class Sky extends Component {
     );
   }
 }
+
+
+export default Sky;
